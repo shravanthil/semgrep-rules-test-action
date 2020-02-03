@@ -19,16 +19,17 @@ function usesBoolean() {
 function main() {
     echo "" # see https://github.com/actions/toolkit/issues/168
 
+    # install make in minimal docker image
     apk add make
-    
 
     set +e
-    OUTPUT=$(make test)
+    OUTPUT=$(make test | tee 1> test_stdout.txt 2> test_stderr.txt)
     EXIT_CODE=$?
     set -e
     ## echo to STDERR so output shows up in GH action UI
     echo >&2 $OUTPUT
     echo "::set-output name=results::${OUTPUT}"
+    echo "::set-output name=exit_code::${EXIT_CODE}"
     exit $EXIT_CODE
 }
 

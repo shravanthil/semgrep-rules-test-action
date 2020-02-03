@@ -12,6 +12,10 @@ None
 
 The test results
 
+### `exit_code`
+
+The exit code of `make test`
+
 ## Example usage
 
 Put in `.github/workflows/sgrep-rules-test.yml`

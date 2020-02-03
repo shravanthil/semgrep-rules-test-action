@@ -12,6 +12,8 @@ inputs:
 outputs:
   results:
     description: 'test results'
+  exit_code:
+    description: 'exit code of make test'
 runs:
   using: 'docker'
   image: 'Dockerfile'
