@@ -23,8 +23,9 @@ function main() {
     apk add make
 
     set +e
-    OUTPUT=$(make test | tee 1> test_stdout.txt 2> test_stderr.txt)
+    make test 1> test_stdout.txt 2> test_stderr.txt
     EXIT_CODE=$?
+    OUTPUT=$(cat test_stdout.txt)
     set -e
     ## echo to STDERR so output shows up in GH action UI
     echo >&2 $OUTPUT
