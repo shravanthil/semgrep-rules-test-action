@@ -1,0 +1,17 @@
+# action.yml
+name: 'sgrep-run-tests'
+description: 'Run tests for sgrep rules repos'
+branding:
+  icon: 'activity'
+  color: 'green'
+inputs:
+  test:
+    description: 'file to execute'
+    required: true
+    default: 'test.py'
+outputs:
+  results:
+    description: 'test results'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
