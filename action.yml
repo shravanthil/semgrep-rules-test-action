@@ -14,6 +14,8 @@ outputs:
     description: 'test results'
   exit_code:
     description: 'exit code of make test'
+  output_dir:
+    description: 'directory of test artifacts'
 runs:
   using: 'docker'
   image: 'Dockerfile'
