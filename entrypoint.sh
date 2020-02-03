@@ -28,7 +28,7 @@ function main() {
     set -e
     ## echo to STDERR so output shows up in GH action UI
     echo >&2 $OUTPUT
-    echo "::set-output name=output::${OUTPUT}"
+    echo "::set-output name=results::${OUTPUT}"
     exit $EXIT_CODE
 }
 
