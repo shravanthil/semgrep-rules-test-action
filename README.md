@@ -1,4 +1,4 @@
-# sgrep-run-tests action
+# sgrep-rules-test action
 
 This action runs the tests for sgrep rules repos. Runs `make test`
 
