@@ -22,17 +22,16 @@ function main() {
     # install make in minimal docker image
     apk add make
 
-    mkdir .test_output
-    
+    mkdir -p .test_output
+
     set +e
-    make test 1> .test_output/stdout.txt 2> .test_output/stderr.txt
+    make test 1>.test_output/stdout.txt 2>.test_output/stderr.txt
     EXIT_CODE=$?
-    OUTPUT=$(cat .test_output/stdout.txt)
     set -e
     ## echo to STDERR so output shows up in GH action UI
-    echo >&2 $OUTPUT
+    cat .test_output/stdout.txt >&2
     ## format string
-    OUTPUT_FMT=$(echo $OUTPUT | sed 's/$/\\\\n/' | tr -d '\n')
+    OUTPUT_FMT=$(cat .test_output/stdout.txt | sed 's/$/\\n/' | tr -d '\n')
     echo "::set-output name=results::${OUTPUT_FMT}"
     echo "::set-output name=exit_code::${EXIT_CODE}"
     echo "::set-output name=output_dir::.test_output"
