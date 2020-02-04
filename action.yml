@@ -1,21 +1,16 @@
-# action.yml
-name: 'sgrep-run-tests'
-description: 'Run tests for sgrep rules repos'
+name: "sgrep-run-tests"
+description: "Run tests for sgrep rules repos"
 branding:
-  icon: 'activity'
-  color: 'green'
+  icon: "activity"
+  color: "green"
 inputs:
-  test:
-    description: 'file to execute'
-    required: true
-    default: 'test.py'
 outputs:
   results:
-    description: 'test results'
+    description: "test results"
   exit_code:
-    description: 'exit code of make test'
+    description: "exit code of make test"
   output_dir:
-    description: 'directory of test artifacts'
+    description: "directory of test artifacts"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
