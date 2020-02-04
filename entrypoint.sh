@@ -27,7 +27,7 @@ function main() {
 
     set +e
     # Run `make test`
-    make test 1>OUTPUT_STDOUT 2>OUTPUT_STDERR
+    make test 1>$OUTPUT_STDOUT 2>$OUTPUT_STDERR
     EXIT_CODE=$?
     set -e
     ## echo to STDERR so output shows up in GH action UI
