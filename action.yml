@@ -3,7 +3,6 @@ description: "Run tests for sgrep rules repos"
 branding:
   icon: "activity"
   color: "green"
-inputs:
 outputs:
   results:
     description: "test results"
