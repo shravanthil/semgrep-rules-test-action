@@ -37,7 +37,7 @@ function main() {
     echo "::set-output name=results::${OUTPUT_FMT}"
     echo "::set-output name=exit_code::${EXIT_CODE}"
     echo "::set-output name=output_dir::.test_output"
-    exit 1
+    exit $EXIT_CODE
 }
 
 main
