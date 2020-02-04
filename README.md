@@ -16,6 +16,10 @@ The test results
 
 The exit code of `make test`
 
+### `output_dir`
+
+The directory of STDOUT and STDERROR files. Useful for uploading artifacts
+
 ## Example usage
 
 Put in `.github/workflows/sgrep-rules-test.yml`
