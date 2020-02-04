@@ -19,23 +19,25 @@ function usesBoolean() {
 function main() {
     echo "" # see https://github.com/actions/toolkit/issues/168
 
-    # install make in minimal docker image
-    apk add make
+    OUTPUT_DIR=".test_output"
+    OUTPUT_STDOUT="${OUTPUT_DIR}/stdout.txt"
+    OUTPUT_STDERR="${OUTPUT_DIR}/stderr.txt"
 
-    mkdir -p .test_output
+    mkdir -p OUTPUT_DIR
 
     set +e
-    make test 1>.test_output/stdout.txt 2>.test_output/stderr.txt
+    # Run `make test`
+    make test 1>OUTPUT_STDOUT 2>OUTPUT_STDERR
     EXIT_CODE=$?
     set -e
     ## echo to STDERR so output shows up in GH action UI
-    cat .test_output/stdout.txt >&2
+    cat $OUTPUT_STDOUT >&2
     ## format string
-    OUTPUT_FMT=$(cat .test_output/stdout.txt | sed 's/$/\\n/' | tr -d '\n')
+    OUTPUT_FMT=$(cat $OUTPUT_STDOUT | sed 's/$/\\n/' | tr -d '\n')
     echo "::set-output name=results::${OUTPUT_FMT}"
     echo "::set-output name=exit_code::${EXIT_CODE}"
     echo "::set-output name=output_dir::.test_output"
-    exit $EXIT_CODE
+    exit 1
 }
 
 main
