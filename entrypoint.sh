@@ -23,7 +23,7 @@ function main() {
     OUTPUT_STDOUT="${OUTPUT_DIR}/stdout.txt"
     OUTPUT_STDERR="${OUTPUT_DIR}/stderr.txt"
 
-    mkdir -p OUTPUT_DIR
+    mkdir -p $OUTPUT_DIR
 
     set +e
     # Run `make test`
