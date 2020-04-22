@@ -1,4 +1,4 @@
-FROM returntocorp/sgrep:latest
+FROM returntocorp/semgrep:latest
 
 RUN apk add make
 
