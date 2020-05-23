@@ -23,6 +23,11 @@ function main() {
     OUTPUT_STDOUT="${OUTPUT_DIR}/stdout.txt"
     OUTPUT_STDERR="${OUTPUT_DIR}/stderr.txt"
 
+    # Github overwrites the home directory and since we install semgrep
+    # to ~/.local/bin, if you change the home directory everything breaks.
+    # We should probably fix that, but Github also shouldn't override the home directory.
+    export HOME=/root
+    
     mkdir -p $OUTPUT_DIR
 
     set +e
